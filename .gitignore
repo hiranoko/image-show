@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,venv,c++,cmake
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,venv,c++,cmake
 
+output_video.mp4
+
 ### C++ ###
 # Prerequisites
 *.d
