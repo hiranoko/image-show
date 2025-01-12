@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,venv,c++,cmake
 
 .vscode
-settings.json
 output_video.mp4
 
 ### C++ ###
