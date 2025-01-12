@@ -4,6 +4,10 @@ project(imshow)
 find_package(OpenCV REQUIRED)
 find_package(fmt REQUIRED)
 
+# OpenCVライブラリの情報を表示（デバッグ用）
+message(STATUS "OpenCV version: ${OpenCV_VERSION}")
+message(STATUS "OpenCV include dirs: ${OpenCV_INCLUDE_DIRS}")
+
 # 実行ファイルを生成
 add_executable(imshow imshow.cpp)
 

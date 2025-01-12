@@ -1,7 +1,34 @@
 #include <opencv2/opencv.hpp>
 #include <fmt/core.h>
+#include <opencv2/core/cuda.hpp>
 #include <vector>
 #include <chrono>
+
+// ビルド情報を表示する関数
+void printBuildInformation() {
+    std::string build_info = cv::getBuildInformation();
+    std::cout << "OpenCV Build Information:" << std::endl;
+    std::cout << build_info << std::endl;
+
+    // OpenCVがCUDAをサポートしているか確認
+    if (cv::cuda::getCudaEnabledDeviceCount() > 0) {
+        std::cout << "OpenCV is built with CUDA support." << std::endl;
+
+        // CUDA対応デバイス数を表示
+        int deviceCount = cv::cuda::getCudaEnabledDeviceCount();
+        std::cout << "Number of CUDA-enabled devices: " << deviceCount << std::endl;
+
+        // 各デバイスの情報を表示
+        for (int i = 0; i < deviceCount; ++i) {
+            cv::cuda::DeviceInfo deviceInfo(i);
+            std::cout << "Device " << i << ": " << deviceInfo.name() << std::endl;
+            std::cout << "  Compute capability: " << deviceInfo.majorVersion() << "." << deviceInfo.minorVersion() << std::endl;
+            std::cout << "  Total memory: " << deviceInfo.totalMemory() / (1024 * 1024) << " MB" << std::endl;
+        }
+    } else {
+        std::cout << "OpenCV is NOT built with CUDA support, or no CUDA-enabled devices are available." << std::endl;
+    }
+}
 
 int main()
 {
@@ -22,6 +49,7 @@ int main()
     fmt::print("Video resolution: {}x{}, FPS: {:.2f}, Total frames: {}\n", width, height, fps, total_frames);
 
     cv::namedWindow("Display", cv::WINDOW_NORMAL);
+    // cv::namedWindow("Display", cv::WINDOW_OPENGL);
 
     std::vector<double> times; // 時間計測用
 
@@ -43,7 +71,7 @@ int main()
         cv::imshow("Display", frame);
 
         // ユーザー入力待機 ('q' or 'ESC' で終了)
-        char key = static_cast<char>(cv::waitKey(1));
+        char key = static_cast<char>(cv::pollKey());
 
         // タイマー終了
         auto t1 = std::chrono::high_resolution_clock::now();
@@ -80,5 +108,10 @@ int main()
 
     cap.release();
     cv::destroyAllWindows();
+
+    // OpenCVのビルド情報を表示
+    printBuildInformation();
+
+    
     return 0;
 }
