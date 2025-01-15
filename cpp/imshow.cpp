@@ -48,7 +48,8 @@ int main()
 
     fmt::print("Video resolution: {}x{}, FPS: {:.2f}, Total frames: {}\n", width, height, fps, total_frames);
 
-    cv::namedWindow("Display", cv::WINDOW_NORMAL);
+    cv::namedWindow("Display");
+    // cv::namedWindow("Display", cv::WINDOW_NORMAL);
     // cv::namedWindow("Display", cv::WINDOW_OPENGL);
 
     std::vector<double> times; // 時間計測用

@@ -1,16 +1,31 @@
-# Image Show Project
+# Image Show
 
 This project compares the speed of video rendering between Python and C++.
 
 ## Rendering time
 
-| Language | Library         | Time(msec) |
-| :------: | :-------------- | :--------: |
-|  Python  | OpenCV(4.10.0)  |    2.6     |
-|  Python  | PyOpenGL(3.1.7) |    1.3     |
-|   C++    | OpenCV(4.5.4)   |    1.4     |
-|   C++    | OpenCV(4.10.0)  |    1.4     |
-|  Python  | OpenCV(built)   |    1.4     |
+- Desktop(pypi)
+
+| Language | Library         |  Time(msec)   |
+| :------: | :-------------- | :-----------: |
+|  Python  | OpenCV(4.10.0)  | 2.61 ± 0.0520 |
+|  Python  | PyOpenGL(3.1.7) | 1.33 ± 0.0776 |
+|   C++    | OpenCV(4.5.4)   | 1.29 ± 0.1949 |
+
+- Desktop(build)
+
+| Language | Library        |  Time(msec)   |
+| :------: | :------------- | :-----------: |
+|  Python  | OpenCV(4.10.0) | 1.26 ± 0.1894 |
+|   C++    | OpenCV(4.10.0) | 1.22 ± 0.1433 |
+
+- Kria KV260(pypi)
+
+| Language | Library         |  Time(msec)   |
+| :------: | :-------------- | :-----------: |
+|  Python  | OpenCV(4.10.0)  | 8.70 ± 0.0864 |
+|  Python  | PyOpenGL(3.1.7) | 58.9 ± 1.5048 |
+|   C++    | OpenCV(4.6.0)   | 9.52 ± 0.0894 |
 
 ## Setup
 

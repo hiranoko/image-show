@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def create_video(output_path, width=1280, height=720, fps=60, duration=30):
+def create_video(output_path, width=1280, height=720, fps=60, duration=10):
     # 動画の設定
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # コーデック
     video_writer = cv2.VideoWriter(output_path, fourcc, fps, (width, height))

@@ -1,6 +1,16 @@
 cmake_minimum_required(VERSION 3.10)
 project(imshow)
 
+# --------------------------------------------------
+# 1) Apt でインストールした OpenCV を使う場合
+# --------------------------------------------------
+set(OpenCV_DIR "/usr/lib/x86_64-linux-gnu/cmake/opencv4")
+#
+# --------------------------------------------------
+# 2) ソースコードからビルドした OpenCV を使う場合
+# --------------------------------------------------
+# set(OpenCV_DIR "/usr/local/include/opencv4")
+
 find_package(OpenCV REQUIRED)
 find_package(fmt REQUIRED)
 

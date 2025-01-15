@@ -18,7 +18,9 @@ def main():
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))  # 総フレーム数
 
     logger.info(f"Video resolution: {width}x{height}, FPS: {fps}, Total frames: {total_frames}")
-    cv2.namedWindow("imshow", cv2.WINDOW_NORMAL)
+    
+    cv2.namedWindow("imshow")
+    # cv2.namedWindow("imshow", cv2.WINDOW_NORMAL)
 
     data = []
     while True:
